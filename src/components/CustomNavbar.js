@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink as ReactLink, useNavigate } from "react-router-dom";
 import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from "reactstrap";
-import { doLogOut, getCurrentUser, isLoggedIn } from "../auth";
+import { doLogOut, getCurrentUserDetail, isLoggedIn } from "../auth";
 
 const CustomNavbar = () => {
 
@@ -14,7 +14,7 @@ const CustomNavbar = () => {
   useEffect(()=>{
 
     setLogin(isLoggedIn());
-    setUser(getCurrentUser());
+    setUser(getCurrentUserDetail());
 
   },[login])
 
@@ -59,7 +59,7 @@ const CustomNavbar = () => {
               <DropdownToggle caret nav>
                 More
               </DropdownToggle>
-              <DropdownMenu right>
+              <DropdownMenu end>
                 <DropdownItem tag={ReactLink} to="/services">
                   Contact Us
                 </DropdownItem>
@@ -76,8 +76,7 @@ const CustomNavbar = () => {
             {login && (
               <>
                 <NavItem>
-                  {/* <NavLink tag={ReactLink} to={`/user/profile-info/${user.id}`}> */}
-                  <NavLink tag={ReactLink} to={`/user/profile-info`}>
+                  <NavLink tag={ReactLink} to={`/user/profile-info/${user.id}`}>
                     Profile Info
                   </NavLink>
                 </NavItem>

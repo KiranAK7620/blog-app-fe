@@ -1,11 +1,11 @@
 import React from 'react'
 import Base from '../components/Base'
+import NewFeed from '../components/NewFeed'
 
 const Home = () => {
   return (
     <Base>
-        <div>Home</div>
-        <p>This is <span>Home Page</span></p>
+        <NewFeed />
     </Base>
   )
 }

@@ -78,7 +78,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
-        if (error.response.status == 400 || error.response.status == 404) {
+        if (error.response?.status == 400 || error.response?.status == 404) {
           toast.error(error.response.data.message);
         } else {
           toast.error("Something went wrong  on sever !!");
