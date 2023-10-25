@@ -24,12 +24,22 @@ export const doLogOut = (next)=>{
 
 //get currentUser
 
-export const getCurrentUser = ()=>{
+export const getCurrentUserDetail = ()=>{
     if(isLoggedIn()){
         return JSON.parse(localStorage.getItem("data"))?.user;
     }
     else{
         return undefined;
     }
+}
 
+//get Token
+
+export const getToken =()=>{
+    if(isLoggedIn()){
+        return JSON.parse(localStorage.getItem("data")).token;
+    }
+    else{
+        return null;
+    }
 }
