@@ -20,7 +20,7 @@ const PostPage = () => {
   const { postId } = useParams();
   const [post, setPost] = useState(null);
   const [comment, setComment] = useState({
-    conent: "",
+    content: "",
   });
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const PostPage = () => {
         console.log(error);
         toast.error("Error in loading post");
       });
-  }, []);
+  }, [postId]);
 
   const printDate = (numbers) => {
     return new Date(numbers).toLocaleDateString();
@@ -49,7 +49,7 @@ const PostPage = () => {
     if (comment.content.trim() === "") {
       return;
     }
-    createComment(comment, post.postId)
+    createComment(comment,postId)
       .then((data) => {
         console.log(data);
         toast.success("comment added ..");
