@@ -82,33 +82,19 @@ const AddPost = () => {
     }
 
     //submit the form on server
-    // post["userId"] = user.id;
-    // doCreatePost(post)
-    //   .then((data) => {
-    //     uploadPostImage(image, data.postId)
-    //       .then((data) => {
-    //         toast.success("Image Uploaded !!");
-    //       })
-    //       .catch((error) => {
-    //         toast.error("Error in uploading image");
-    //         console.log(error);
-    //       });
-
-    //     toast.success("Post Created !!");
-    //     // console.log(post)
-    //     setPost({
-    //       title: "",
-    //       content: "",
-    //       categoryId: "",
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     toast.error("Post not created due to some error !!");
-    //     // console.log(error)
-    //   });
     post["userId"] = user.id;
     doCreatePost(post)
       .then((data) => {
+        
+        uploadPostImage(image, data.postID)
+          .then((data) => {
+            toast.success("Image Uploaded !!");
+          })
+          .catch((error) => {
+            toast.error("Error in uploading image");
+            console.log(error);
+          });
+
         toast.success("Post Created !!");
         // console.log(post)
         setPost({
@@ -119,8 +105,23 @@ const AddPost = () => {
       })
       .catch((error) => {
         toast.error("Post not created due to some error !!");
-        console.log(error)
+        // console.log(error)
       });
+    // post["userId"] = user.id;
+    // doCreatePost(post)
+    //   .then((data) => {
+    //     toast.success("Post Created !!");
+    //     // console.log(post)
+    //     setPost({
+    //       title: "",
+    //       content: "",
+    //       categoryId: "",
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     toast.error("Post not created due to some error !!");
+    //     console.log(error)
+    //   });
   };
 
   //handling file chagne event

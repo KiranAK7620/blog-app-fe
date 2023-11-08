@@ -31,7 +31,7 @@ const CustomNavbar = () => {
   
   return (
     <div>
-      <Navbar color="dark" dark expand="md" fixed="" className="px-5">
+      <Navbar color="dark fw-bold" dark expand="md" fixed="" className="px-5">
         <NavbarBrand tag={ReactLink} to="/">
           Blogify
         </NavbarBrand>
@@ -60,7 +60,7 @@ const CustomNavbar = () => {
                 More
               </DropdownToggle>
               <DropdownMenu end>
-                <DropdownItem tag={ReactLink} to="/services">
+                <DropdownItem tag={ReactLink} to="/contact-us">
                   Contact Us
                 </DropdownItem>
                 <DropdownItem>Facebook</DropdownItem>

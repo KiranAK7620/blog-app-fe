@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import Post from "./Post";
 import { toast } from "react-toastify";
-// import InfiniteScroll from "react-infinite-scroll-component";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { deletePostService } from "../services/post-service";
 function NewFeed() {
   const [postContent, setPostContent] = useState({
@@ -42,7 +42,7 @@ function NewFeed() {
     loadAllPosts(pageNumber, pageSize)
       .then((data) => {
         setPostContent({
-          content: [...data.content],
+          content: [...postContent.content , ...data.content],
           totalPages: data.totalPages,
           totalElements: data.totalElements,
           pageSize: data.pageSize,
@@ -83,17 +83,17 @@ function NewFeed() {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{minHeight:'390px'}}>
       <Row>
         <Col
-         sm={{ size: 8, offset: 2 }}
+         sm={{ size: 12 }}
         >
           <h1>Blogs Count ( {postContent?.totalElements} )</h1>
           {postContent.content.map((post, index) => (
             <Post deletePost={deletePost} post={post} key={index} />
           ))}
 
-          {/* <InfiniteScroll
+          <InfiniteScroll
             dataLength={postContent.content.length}
             next={changePageInfinite}
             hasMore={!postContent.lastPage}
@@ -107,8 +107,8 @@ function NewFeed() {
             {postContent.content.map((post, index) => (
               <Post deletePost={deletePost} post={post} key={index} />
             ))}
-          </InfiniteScroll> */}
-          <Container className="mt-3">
+          </InfiniteScroll>
+          {/* <Container className="mt-3">
             <Pagination size="md">
               <PaginationItem
                 onClick={() => changePage(postContent.pageNumber - 1)}
@@ -134,7 +134,7 @@ function NewFeed() {
                 <PaginationLink next>Next</PaginationLink>
               </PaginationItem>
             </Pagination>
-          </Container>
+          </Container> */}
         </Col>
       </Row>
     </div>

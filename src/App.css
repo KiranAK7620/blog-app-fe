@@ -5,3 +5,7 @@ body{
     background-color: #121212 !important;
     border-color: #121212 !important;
 }
+
+.bg-dark{
+    background-color: #BB86FC !important;
+}
