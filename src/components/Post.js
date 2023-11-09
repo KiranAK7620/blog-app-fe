@@ -40,19 +40,19 @@ const Post = ({
             Read More
           </Link>
           {/* {userContextData.user.login &&
-            (user && user.id === post.user.id ? (
+            (user && user.id === post.user.id ? ( */}
               <Button
-                onClick={(event) => deletePost(post)}
+                onClick={() => deletePost(post)}
                 color="danger"
                 className="ms-2"
               >
                 Delete
               </Button>
-            ) : (
+            {/* ) : (
               ""
             ))}
           {userContextData.user.login &&
-            (user && user.id === post.user.id ? (
+            (user && user.id === post.user.id ? ( */}
               <Button
                 tag={Link}
                 to={`/user/update-blog/${post.postId}`}
@@ -61,7 +61,7 @@ const Post = ({
               >
                 Update
               </Button>
-            ) : (
+            {/* ) : (
               ""
             ))} */}
         </div>

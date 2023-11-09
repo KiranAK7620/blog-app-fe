@@ -16,6 +16,7 @@ import PostPage from "./pages/PostPage";
 import UserProvider from "./context/UserProvider";
 import Services from "./pages/Services";
 import ContactUs from "./pages/ContactUs";
+import Categories from "./pages/Categories";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/posts/:postId" element={<PostPage />} />
+        <Route path="/categories/:categoryId" element={<Categories />} />
         
         <Route path="/user" element={<Privateroute />}>
           <Route path="dashboard" element={<UserDashboard />} />

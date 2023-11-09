@@ -9,7 +9,7 @@ const Home = () => {
     <Base>
       <Container className="mt-3">
         <Row>
-          <Col md={3} className="pt-3">
+          <Col md={3} className="pt-5">
             <CategorySideMenu />
           </Col>
 
