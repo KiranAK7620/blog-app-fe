@@ -42,7 +42,7 @@ function NewFeed() {
     loadAllPosts(pageNumber, pageSize)
       .then((data) => {
         setPostContent({
-          content: [...postContent.content , ...data.content],
+          content: [...postContent.content, ...data.content],
           totalPages: data.totalPages,
           totalElements: data.totalElements,
           pageSize: data.pageSize,
@@ -61,7 +61,7 @@ function NewFeed() {
     //going to delete post
     console.log(post);
 
-    deletePostService(post.postId)
+    deletePostService(post.postID)
       .then((res) => {
         console.log(res);
         toast.success("post is deleled..");
@@ -83,12 +83,10 @@ function NewFeed() {
   };
 
   return (
-    <div className="container-fluid" style={{minHeight:'390px'}}>
+    <div className="container-fluid" style={{ minHeight: "390px" }}>
       <Row>
-        <Col
-         sm={{ size: 12 }}
-        >
-          <h1>Blogs Count ( {postContent?.totalElements} )</h1>
+        <Col sm={{ size: 12 }}>
+          <h2>Blogs Count : ( {postContent?.totalElements} )</h2>
           {postContent.content.map((post, index) => (
             <Post deletePost={deletePost} post={post} key={index} />
           ))}
