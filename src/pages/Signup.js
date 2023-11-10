@@ -17,9 +17,9 @@ import {
   Row,
 } from "reactstrap";
 import Base from "../components/Base";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 const Signup = () => {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -73,7 +73,7 @@ const Signup = () => {
           password: "",
           about: "",
         });
-        navigate("/login")
+        // navigate("/login")
       })
       .catch((error) => {
         console.log(error);

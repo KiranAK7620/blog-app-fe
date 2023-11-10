@@ -25,23 +25,3 @@ privateAxios.interceptors.request.use(
   },
   (error) => Promise.reject(error)
 );
-// privateAxios.interceptors.request.use(
-//   (config) => {
-//     const token = getToken();
-
-//     if (token) {
-//       if (!config.headers) {
-//         config.headers = {};
-//       }
-
-//       if (!config.headers.common) {
-//         config.headers.common = {};
-//       }
-
-//       config.headers.common.Authorization = `Bearer ${token}`;
-//       console.log('config', config);
-//     }
-//     return config;
-//   },
-//   (error) => Promise.reject(error)
-// );
