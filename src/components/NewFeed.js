@@ -81,15 +81,15 @@ function NewFeed() {
     console.log("page chagned");
     setCurrentPage(currentPage + 1);
   };
-
+console.log('postContent',postContent);
   return (
     <div className="container-fluid" style={{ minHeight: "390px" }}>
       <Row>
         <Col sm={{ size: 12 }}>
           <h2>Blogs Count : ( {postContent?.totalElements} )</h2>
-          {postContent.content.map((post, index) => (
+          {/* {postContent.content.map((post, index) => (
             <Post deletePost={deletePost} post={post} key={index} />
-          ))}
+          ))} */}
 
           <InfiniteScroll
             dataLength={postContent.content.length}

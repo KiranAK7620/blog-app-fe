@@ -22,7 +22,7 @@ import { toast } from "react-toastify";
 
 const AddPost = () => {
   const editor = useRef(null);
-  const [content,setContent] =useState('')
+  // const [content,setContent] =useState('')
   const [categories, setCategories] = useState([]);
   const [user, setUser] = useState(undefined);
 
@@ -34,10 +34,10 @@ const AddPost = () => {
 
   const [image, setImage] = useState(null);
 
-  const config={
-      placeholder:"Start typing...",
+  // const config={
+  //     placeholder:"Start typing...",
 
-  }
+  // }
 
   useEffect(() => {
     setUser(getCurrentUserDetail());
@@ -58,7 +58,7 @@ const AddPost = () => {
   };
 
   const contentFieldChanaged = (data) => {
-    setPost({ ...post, content: data });
+    setPost({ ...post, 'content': data });
   };
 
   //create post function
@@ -107,21 +107,7 @@ const AddPost = () => {
         toast.error("Post not created due to some error !!");
         // console.log(error)
       });
-    // post["userId"] = user.id;
-    // doCreatePost(post)
-    //   .then((data) => {
-    //     toast.success("Post Created !!");
-    //     // console.log(post)
-    //     setPost({
-    //       title: "",
-    //       content: "",
-    //       categoryId: "",
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     toast.error("Post not created due to some error !!");
-    //     console.log(error)
-    //   });
+    
   };
 
   //handling file chagne event

@@ -6,7 +6,7 @@ import Base from "../components/Base";
 const About = () => {
   return (
     <userContext.Consumer>
-      {(user) => (
+      {(object) => (
         <Base>
           <Container>
             <Row className="my-5">
@@ -41,7 +41,7 @@ const About = () => {
                   platform to share your stories and ideas.
                 </p>
                 <ul>
-                  <li>{user.name}</li>
+                  <li>{object.user.login && object.user.data.name}</li>
                   <li>Kedar Jadhav</li>
                 </ul>
               </Col>

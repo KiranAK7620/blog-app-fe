@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Card, CardBody, CardText } from "reactstrap";
 import { getCurrentUserDetail, isLoggedIn } from "../auth";
-// import userContext from '../context/userContext'
+import userContext from '../context/userContext'
 
 const Post = ({
   post = {
@@ -15,7 +15,7 @@ const Post = ({
   },
   deletePost,
 }) => {
-  // const userContextData = useContext(userContext)
+  const userContextData = useContext(userContext)
   const [user, setUser] = useState(null);
   const [login, setLogin] = useState(null);
   useEffect(() => {
@@ -39,8 +39,8 @@ const Post = ({
           >
             Read More
           </Link>
-          {/* {userContextData.user.login &&
-            (user && user.id === post.user.id ? ( */}
+          {userContextData.user.login &&
+            (user && user.id === post.user.id ? (
               <Button
                 onClick={() => deletePost(post)}
                 color="danger"
@@ -48,22 +48,22 @@ const Post = ({
               >
                 Delete
               </Button>
-            {/* ) : (
+           ) : (
               ""
             ))}
           {userContextData.user.login &&
-            (user && user.id === post.user.id ? ( */}
+            (user && user.id === post.user.id ? (
               <Button
                 tag={Link}
-                to={`/user/update-blog/${post.postId}`}
+                to={`/user/update-blog/${post.postID}`}
                 color="warning"
                 className="ms-2"
               >
                 Update
               </Button>
-            {/* ) : (
+             ) : (
               ""
-            ))} */}
+            ))}
         </div>
       </CardBody>
     </Card>

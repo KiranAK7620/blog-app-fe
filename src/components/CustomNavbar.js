@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { NavLink as ReactLink, useNavigate } from "react-router-dom";
 import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from "reactstrap";
 import { doLogOut, getCurrentUserDetail, isLoggedIn } from "../auth";
+import { useContext } from "react";
+import userContext from "../context/userContext";
 
 const CustomNavbar = () => {
 
+  const userContextData = useContext(userContext)
   let navigate=useNavigate();
-    
+  
   const [isOpen, setIsOpen] = useState(false);
   const [login, setLogin] = useState(false)
   const [user ,setUser] = useState(undefined);
@@ -20,11 +23,16 @@ const CustomNavbar = () => {
 
   const logout = ()=>{
 
-    doLogOut(()=>{
+    doLogOut(() => {
+      //logged out
+      setLogin(false)
+      userContextData.setUser({
+          data: null,
+          login: false
+      })
 
-      setLogin(false);
-      navigate("/");
-    });
+      navigate("/")
+  })
 
   }
   

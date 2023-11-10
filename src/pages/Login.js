@@ -17,11 +17,11 @@ import Base from "../components/Base";
 import { loginUser } from "../services/user-service";
 import { doLogin } from "../auth";
 import { useNavigate } from "react-router-dom";
-// import userContext from "../context/userContext";
-// import { useContext } from "react";
+import userContext from "../context/userContext";
+import { useContext } from "react";
 
 const Login = () => {
-//   const userContxtData = useContext(userContext);
+  const userContxtData = useContext(userContext);
 
   const navigate = useNavigate();
 
@@ -67,10 +67,10 @@ const Login = () => {
           console.log("login detail is saved to localstorage");
           
           // redirect to user dashboard page
-          // userContxtData.setUser({
-          //   data: data.user,
-          //   login: true,
-          // });
+          userContxtData.setUser({
+            data: data.user,
+            login: true,
+          });
           navigate("/user/dashboard");
         });
 
