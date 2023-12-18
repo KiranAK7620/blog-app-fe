@@ -1,42 +1,49 @@
 import React, { useEffect, useState } from "react";
 import { NavLink as ReactLink, useNavigate } from "react-router-dom";
-import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from "reactstrap";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarToggler,
+  Collapse,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText,
+} from "reactstrap";
 import { doLogOut, getCurrentUserDetail, isLoggedIn } from "../auth";
 import { useContext } from "react";
 import userContext from "../context/userContext";
 
 const CustomNavbar = () => {
+  const userContextData = useContext(userContext);
+  let navigate = useNavigate();
 
-  const userContextData = useContext(userContext)
-  let navigate=useNavigate();
-  
   const [isOpen, setIsOpen] = useState(false);
-  const [login, setLogin] = useState(false)
-  const [user ,setUser] = useState(undefined);
+  const [login, setLogin] = useState(false);
+  const [user, setUser] = useState(undefined);
 
-  useEffect(()=>{
-
+  useEffect(() => {
     setLogin(isLoggedIn());
     setUser(getCurrentUserDetail());
+  }, [login]);
 
-  },[login])
-
-  const logout = ()=>{
-
+  const logout = () => {
     doLogOut(() => {
       //logged out
-      setLogin(false)
+      setLogin(false);
       userContextData.setUser({
-          data: null,
-          login: false
-      })
+        data: null,
+        login: false,
+      });
 
-      navigate("/")
-  })
+      navigate("/");
+    });
+  };
 
-  }
-  
-  
   return (
     <div>
       <Navbar color="dark fw-bold" dark expand="md" fixed="" className="px-5">
@@ -52,6 +59,14 @@ const CustomNavbar = () => {
                 New Feed
               </NavLink>
             </NavItem>
+            {login && (
+              <NavItem>
+                <NavLink tag={ReactLink} to="/user/dashboard">
+                  {/* {user.email} */}
+                  Add Blog
+                </NavLink>
+              </NavItem>
+            )}
             <NavItem>
               <NavLink tag={ReactLink} to="/about">
                 About
@@ -85,18 +100,18 @@ const CustomNavbar = () => {
               <>
                 <NavItem>
                   <NavLink tag={ReactLink} to={`/user/profile-info/${user.id}`}>
-                    Profile Info
+                    {/* Profile Info */}
+                    
+                    <span>
+                      {`${user.name}`}
+                    </span>
                   </NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <NavLink tag={ReactLink} to="/user/dashboard">
-                    {user.email}
+                  <NavLink onClick={logout} style={{ cursor: "pointer" }}>
+                    Logout
                   </NavLink>
-                </NavItem>
-
-                <NavItem>
-                  <NavLink onClick={logout} style={{cursor:'pointer'}}>Logout</NavLink>
                 </NavItem>
               </>
             )}

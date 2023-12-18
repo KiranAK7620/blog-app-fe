@@ -13,3 +13,6 @@ export const loginUser = (loginDetail) => {
 export const getUser = (userId) => {
   return myAxios.get(`/users/${userId}`).then((resp) => resp.data);
 };
+export const updateUser = (user,userId) => {
+  return myAxios.get(`/users/${userId}`,user).then((resp) => resp.data);
+};
