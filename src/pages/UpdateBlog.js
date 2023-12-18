@@ -122,7 +122,7 @@ function UpdateBlog() {
 
                             <div className="mt-3">
                                 <Label for="image">Select Post banner</Label>
-                                <Input id="image" type="file" onChange={''} />
+                                <Input id="image" type="file" onChange={''}/>
                             </div>
 
 
@@ -137,7 +137,7 @@ function UpdateBlog() {
                                     className="rounded-0"
                                     name="categoryId"
                                     onChange={(event) => handleChange(event, 'categoryId')}
-
+                                    
                                     value={post.categoryId}
 
 
