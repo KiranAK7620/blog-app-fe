@@ -41,8 +41,8 @@ const About = () => {
                   platform to share your stories and ideas.
                 </p>
                 <ul>
-                  <li>{object.user.login && object.user.data.name}</li>
-                  <li>Kedar Jadhav</li>
+                  {/* <li>{object.user.login && object.user.data.name}</li> */}
+                  <li>KIRAN KADAM</li>
                 </ul>
               </Col>
             </Row>
